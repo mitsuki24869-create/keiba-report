@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>競馬AI レポート</title>
+<style>
+:root { --bg:#f6f7f9; --card:#fff; --fg:#1d2330; --sub:#667085; --line:#e3e6eb; --accent:#c8102e; --link:#eef1f6; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#14171c; --card:#1d2129; --fg:#e7eaf0; --sub:#9aa3b2; --line:#2c323d; --accent:#ff5a6e; --link:#262b35; }
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--fg);
+  font-family: -apple-system, "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", sans-serif; }
+main { max-width:720px; margin:0 auto; padding:20px 16px 40px; }
+h1 { font-size:22px; margin:0 0 4px; }
+.sub { color:var(--sub); font-size:13px; margin:0 0 20px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:14px; }
+.card.latest { border-color:var(--accent); }
+h2 { font-size:17px; margin:0 0 10px; }
+.latest h2::after { content:"最新"; font-size:11px; color:#fff; background:var(--accent); border-radius:6px; padding:2px 6px; margin-left:8px; vertical-align:2px; }
+.links { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:8px; }
+.links a { display:block; padding:12px; border-radius:8px; background:var(--link); color:var(--fg);
+  text-decoration:none; font-size:15px; }
+.links a:first-child { font-weight:700; }
+</style></head><body><main>
+<h1>競馬AI レポート</h1>
+<p class="sub">更新 2026/11/15 08:59</p>
+<section class="card latest"><h2>2026/11/15 (日)</h2><div class="links"><a href="20261115/today.html">まとめ (AI + 指標)</a><a href="20261115/uma.html">馬柱</a><a href="20261115/predict.html">旧AIの予測 (◎○▲△)</a></div></section><section class="card"><h2>2026/11/14 (土)</h2><div class="links"><a href="20261114/today.html">まとめ (AI + 指標)</a><a href="20261114/uma.html">馬柱</a><a href="20261114/predict.html">旧AIの予測 (◎○▲△)</a><a href="20261114/rank.html">ランキングAI</a><a href="20261114/route.html">勝つルート</a><a href="20261114/gap.html">タイム差</a><a href="20261114/corner.html">通過順予測</a><a href="20261114/pedigree.html">5代血統表</a></div></section>
+<section class="card"><h2>共通</h2><div class="links"><a href="common/jockey_form.html">騎手の調子</a></div></section>
+</main></body></html>
