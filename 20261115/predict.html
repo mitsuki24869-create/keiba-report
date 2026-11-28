@@ -492,4 +492,4 @@ try{localStorage.setItem('keiba-tab',i)}catch(e){}}
 btns.forEach((b,i)=>b.onclick=()=>show(i));
 let t=0;try{t=+localStorage.getItem('keiba-tab')||0}catch(e){}
 show(t<btns.length?t:0);
-</script></body></html>
+</script><!-- keiba-sw --><script>if('serviceWorker' in navigator)navigator.serviceWorker.register('../sw.js',{scope:'../'}).catch(()=>{});</script></body></html>

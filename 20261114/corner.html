@@ -35,4 +35,4 @@ th.l,td.l{text-align:left}tr:last-child td{border-bottom:0}
 const btns=[...document.querySelectorAll('.tabs button')],secs=[...document.querySelectorAll('.place')];
 function show(i){btns.forEach((b,j)=>b.classList.toggle('on',i===j));secs.forEach((s,j)=>s.classList.toggle('on',i===j));}
 btns.forEach((b,i)=>b.onclick=()=>show(i)); show(0);
-</script></body></html>
+</script><!-- keiba-sw --><script>if('serviceWorker' in navigator)navigator.serviceWorker.register('../sw.js',{scope:'../'}).catch(()=>{});</script></body></html>

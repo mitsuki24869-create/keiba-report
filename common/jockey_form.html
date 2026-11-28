@@ -185,4 +185,4 @@ $('#jsel').innerHTML=Object.keys(J).sort((a,b)=>(D.total[b]||0)-(D.total[a]||0))
 $('#jsel').value=D.now.length?D.now[0]['騎手名']:Object.keys(J)[0];
 $('#jsel').onchange=()=>{table();draw();}; $('#n').onchange=draw; $('#q').oninput=table; window.onresize=draw;
 table(); draw();
-</script></body></html>
+</script><!-- keiba-sw --><script>if('serviceWorker' in navigator)navigator.serviceWorker.register('../sw.js',{scope:'../'}).catch(()=>{});</script></body></html>

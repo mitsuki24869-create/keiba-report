@@ -2,6 +2,11 @@
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="競馬AI">
+<meta name="theme-color" content="#c8102e">
 <title>競馬AI レポート</title>
 <style>
 :root { --bg:#f6f7f9; --card:#fff; --fg:#1d2330; --sub:#667085; --line:#e3e6eb; --accent:#c8102e; --link:#eef1f6; }
@@ -24,7 +29,25 @@ h2 { font-size:17px; margin:0 0 10px; }
 .links a:first-child { font-weight:700; }
 </style></head><body><main>
 <h1>競馬AI レポート</h1>
-<p class="sub">更新 2026/11/28 22:25</p>
+<p class="sub">更新 2026/11/29 00:39</p>
+<p class="sub" id="offline">オフライン保存: 確認中…</p>
 <section class="card latest"><h2>2026/11/29 (日)</h2><div class="links"><a href="20261129/today.html">まとめ (AI + 指標)</a><a href="20261129/today_ana.html">まとめ + 穴馬</a><a href="20261129/uma.html">馬柱</a><a href="20261129/predict.html">旧AIの予測 (◎○▲△)</a><a href="20261129/blood.html">血統の穴馬サーチ</a><a href="20261129/ai_ana.html">AI と穴馬</a></div></section><section class="card"><h2>2026/11/28 (土)</h2><div class="links"><a href="20261128/today.html">まとめ (AI + 指標)</a><a href="20261128/today_ana.html">まとめ + 穴馬</a><a href="20261128/uma.html">馬柱</a><a href="20261128/predict.html">旧AIの予測 (◎○▲△)</a><a href="20261128/blood.html">血統の穴馬サーチ</a><a href="20261128/ai_ana.html">AI と穴馬</a></div></section><section class="card"><h2>2026/11/23 (月)</h2><div class="links"><a href="20261123/today.html">まとめ (AI + 指標)</a><a href="20261123/uma.html">馬柱</a><a href="20261123/predict.html">旧AIの予測 (◎○▲△)</a></div></section><section class="card"><h2>2026/11/22 (日)</h2><div class="links"><a href="20261122/today.html">まとめ (AI + 指標)</a><a href="20261122/uma.html">馬柱</a><a href="20261122/predict.html">旧AIの予測 (◎○▲△)</a></div></section><section class="card"><h2>2026/11/21 (土)</h2><div class="links"><a href="20261121/today.html">まとめ (AI + 指標)</a><a href="20261121/uma.html">馬柱</a><a href="20261121/predict.html">旧AIの予測 (◎○▲△)</a></div></section><section class="card"><h2>2026/11/15 (日)</h2><div class="links"><a href="20261115/today.html">まとめ (AI + 指標)</a><a href="20261115/uma.html">馬柱</a><a href="20261115/predict.html">旧AIの予測 (◎○▲△)</a></div></section><section class="card"><h2>2026/11/14 (土)</h2><div class="links"><a href="20261114/today.html">まとめ (AI + 指標)</a><a href="20261114/uma.html">馬柱</a><a href="20261114/predict.html">旧AIの予測 (◎○▲△)</a><a href="20261114/rank.html">ランキングAI</a><a href="20261114/route.html">勝つルート</a><a href="20261114/gap.html">タイム差</a><a href="20261114/corner.html">通過順予測</a><a href="20261114/pedigree.html">5代血統表</a></div></section>
 <section class="card"><h2>共通</h2><div class="links"><a href="common/jockey_form.html">騎手の調子</a><a href="common/blood_summary.html">血統の傾向</a></div></section>
-</main></body></html>
+<p class="sub">電波が無くても見るには: Safari の共有ボタン →「ホーム画面に追加」。電波のあるときに一度ホーム画面のアイコンから開くと、
+最新2日分のページがこの端末に保存されます (開いたほかの日のページも保存されます)。</p>
+</main>
+<script>
+(function () {
+  var el = document.getElementById('offline');
+  if (!('serviceWorker' in navigator) || !window.caches) { el.textContent = 'オフライン保存: このブラウザでは使えません'; return; }
+  navigator.serviceWorker.register('sw.js', { scope: './' }).catch(function () {});
+  function show() {
+    caches.open('keiba-report').then(function (c) { return c.keys(); }).then(function (k) {
+      var n = k.filter(function (r) { return /\.html$/.test(r.url); }).length;
+      el.textContent = n ? ('オフライン保存: この端末に ' + n + ' ページ保存済み') : 'オフライン保存: まだありません (電波のあるときに開くと保存されます)';
+    }).catch(function () { el.textContent = 'オフライン保存: 確認できませんでした'; });
+  }
+  show(); navigator.serviceWorker.ready.then(function () { setTimeout(show, 3000); });
+})();
+</script>
+</body></html>
